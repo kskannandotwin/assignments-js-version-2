@@ -84,3 +84,29 @@ function describePopulation(country, population) {
 describePopulation('Finland', 10);
 describePopulation('India', 1407.6);
 describePopulation('England', 56);
+
+// introduction to arrays /////////////////////////////
+
+// Create an array containing 4 population values of 4 countries of your choice.
+// You may use the values you have been using previously. Store this array into a
+// variable called populations.
+
+describePopulation('China', 1441);
+const populations = [10, 1407.6, 56, 1441];
+
+// Log to the console whether the array has 4 elements or not (true or false).
+const isFour = populations.length === 4;
+console.log(isFour);
+
+// Create an array called percentages containing the percentages of the world population
+// for these 4 population values. Use the function percentageOfWorld1 that you created earlier
+// to compute the 4 percentage values.
+
+const chiPercentage1 = percentageOfWorld1(1441);
+const percentages = [
+    percentageOfWorld1(populations[0]),
+    percentageOfWorld1(populations[1]),
+    percentageOfWorld1(populations[2]),
+    percentageOfWorld1(populations[3])
+];
+console.log(percentages);
