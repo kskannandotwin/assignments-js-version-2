@@ -155,7 +155,13 @@ const myCountry = {
     capital: 'New Delhi',
     language: 'Hindi and Other languages',
     population: 1407.6,
-    neighbours: ["Afghanistan", "Bangladesh", "Bhutan", "China", "Maldives", "Myanmar", "Nepal", "Pakistan", "Sri Lanka"]
+    neighbours: ["Afghanistan", "Bangladesh", "Bhutan", "China", "Maldives", "Myanmar", "Nepal", "Pakistan", "Sri Lanka"],
+    checkIsland: function () {
+        console.log(this.isIsland = this.neighbours.length === 0 ? true : false);
+    },
+    describe: function () {
+        console.log(`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`);
+    }
 }
 
 // dot vs bracket notation ///////////////////////////////
@@ -172,3 +178,22 @@ console.log(myCountry.population);
 
 myCountry['population'] -= 2;
 console.log(myCountry.population);
+
+// object methods //////////////////////////////
+
+// Add a method called describe to the myCountry object. This method will log a string to the console,
+// similar to the string logged in the previous assignment, but this time using the 'this' keyword.
+
+// see into the myCountry object [created]
+
+// Call the describe method.
+
+myCountry.describe();
+
+// Add a method called checkIsland to the myCountry object. This method will set a new property
+// on the object, called isIsland. isIsland will be true if there are no neighbouring countries,
+// and false if there are. Use the ternary operator to set the property.
+
+// see into the myCountry object [created]
+
+myCountry.checkIsland();
