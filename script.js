@@ -581,6 +581,12 @@ const newBook = {
 };
 */
 
+const bookData = [
+  ['title', 'Computer Networking: A Top-Down Approach'],
+  ['author', ['James F. Kurose', 'Keith W. Ross']],
+  ['publisher', 'Addison Wesley'],
+];
+
 const newBook = {
   [bookData[0][0]]: bookData[0][1],  
   [bookData[1][0]]: bookData[1][1],  
@@ -609,3 +615,19 @@ const newBook2 = {
   author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
   pages
 }
+
+// optional chaining (?.) //////////////////////////////
+
+// 10.1
+
+// Write a function called getFirstKeyword that takes the book object as an
+// argument. This function should return the first keyword from the book's
+// keywords property (array) or undefined (if the keywords property
+// doesn't exist). It shouldn't throw an error. Use optional chaining
+// for that.
+
+function getFirstKeyword(book) {
+  return book.keywords?.[0] ?? 'No data';
+}
+
+console.log(getFirstKeyword(books));
