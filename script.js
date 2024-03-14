@@ -262,7 +262,10 @@ console.log(thirdBook);
 // variable should store a number 4.19, and the ratingsCount variable
 // should store a number 144584.
 
-const ratings = [['rating', 4.19], ['ratingsCount', 144584]];
+const ratings = [
+  ["rating", 4.19],
+  ["ratingsCount", 144584],
+];
 
 const [[, rating], [, ratingsCount]] = ratings;
 console.log(rating, ratingsCount);
@@ -304,7 +307,7 @@ console.log(tags);
 // programmingLanguage. Assign the programmingLanguage variable with a default value
 // of 'unknown'.
 
-const { language, programmingLanguage = 'unknown' } = books[6];
+const { language, programmingLanguage = "unknown" } = books[6];
 console.log(language, programmingLanguage);
 
 // 2.4
@@ -325,7 +328,11 @@ console.log(bookTitle, bookAuthor);
 
 // Please do most of the work on the left side of the assignment operator: const ... = books[0];
 
-const { thirdParty: { goodreads: { rating: bookRating } } } = books[0];
+const {
+  thirdParty: {
+    goodreads: { rating: bookRating },
+  },
+} = books[0];
 console.log(bookRating);
 
 // 2.6
@@ -336,7 +343,7 @@ console.log(bookRating);
 
 // If year is undefined (was not passed), it should be assigned with a default value of 'year unknown'.
 
-function printBookInfo(title, author, year = 'year unknown') {
+function printBookInfo(title, author, year = "year unknown") {
   console.log(`${title} by ${author}, ${year}`);
 }
 
@@ -362,7 +369,7 @@ function spellWord(str) {
   console.log(...str);
 }
 
-spellWord('Kannan');
+spellWord("Kannan");
 
 // rest pattern and parameters ///////////////////////////////////
 
@@ -419,7 +426,7 @@ printBookAuthorsCount(title, rest);
 // Use short-circuiting
 
 function hasExamplesInJava(book) {
-  return book.programmingLanguage === 'Java' || 'No data available';
+  return book.programmingLanguage === "Java" || "No data available";
 }
 
 console.log(hasExamplesInJava(books[0]));
@@ -455,7 +462,8 @@ hasOnlineContent();
 // short circuiting way - tutorial way
 
 for (let i = 0; i < books.length; i++) {
-  books[i].onlineContent && console.log(`"${books[i].title}" provides online content`);
+  books[i].onlineContent &&
+    console.log(`"${books[i].title}" provides online content`);
 }
 
 // the nullish coalescing operator (??) ///////////////////////
@@ -467,7 +475,10 @@ for (let i = 0; i < books.length; i++) {
 // no data about its online content.
 
 for (let i = 0; i < books.length; i++) {
-  books[i].onlineContent ?? console.log(`"${books[i].title}" provides no data about its online content`);
+  books[i].onlineContent ??
+    console.log(
+      `"${books[i].title}" provides no data about its online content`
+    );
 }
 
 // logical assignments operator //////////////////////////
@@ -524,8 +535,8 @@ console.log(pageSum);
 const allAuthors = [];
 
 for (const book of books) {
-  if (typeof book.author === 'string') {
-    allAuthors.push(book.author)
+  if (typeof book.author === "string") {
+    allAuthors.push(book.author);
   } else {
     for (const author of book.author) {
       allAuthors.push(author);
@@ -582,16 +593,16 @@ const newBook = {
 */
 
 const bookData = [
-  ['title', 'Computer Networking: A Top-Down Approach'],
-  ['author', ['James F. Kurose', 'Keith W. Ross']],
-  ['publisher', 'Addison Wesley'],
+  ["title", "Computer Networking: A Top-Down Approach"],
+  ["author", ["James F. Kurose", "Keith W. Ross"]],
+  ["publisher", "Addison Wesley"],
 ];
 
 const newBook = {
   [bookData[0][0]]: bookData[0][1],
   [bookData[1][0]]: bookData[1][1],
-  [bookData[2][0]]: bookData[2][1]
-}
+  [bookData[2][0]]: bookData[2][1],
+};
 
 // 9.2
 
@@ -611,10 +622,10 @@ const newBook2 = {
 const pages = 880;
 
 const newBook2 = {
-  title: 'The C Programming Language',
-  author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
-  pages
-}
+  title: "The C Programming Language",
+  author: ["Brian W. Kernighan", "Dennis M. Ritchie"],
+  pages,
+};
 
 // optional chaining (?.) //////////////////////////////
 
@@ -627,7 +638,7 @@ const newBook2 = {
 // for that.
 
 function getFirstKeyword(book) {
-  return book.keywords?.[0] ?? 'No data';
+  return book.keywords?.[0] ?? "No data";
 }
 
 console.log(getFirstKeyword(books));
@@ -663,7 +674,9 @@ for (const key of Object.keys(books[0].thirdParty.goodreads)) {
 
 // Push each value to the appropriate inner array in the entries array (use index from entries()).
 
-for (const [index, value] of Object.values(books[0].thirdParty.goodreads).entries()) {
+for (const [index, value] of Object.values(
+  books[0].thirdParty.goodreads
+).entries()) {
   entries[index].push(value);
   console.log(index, value);
 }
@@ -673,7 +686,7 @@ for (const [index, value] of Object.values(books[0].thirdParty.goodreads).entrie
 // Use the Object.entries() method on the thirdParty.goodreads property of the first book from the books
 // array. Assign the returned value to the variable called entries2.
 
-const entries2 = Object.entries(books[0].thirdParty.goodreads)
+const entries2 = Object.entries(books[0].thirdParty.goodreads);
 console.log(entries2);
 
 // 11.4
@@ -713,14 +726,14 @@ const uniqueKeywords = new Set(allKeywords);
 
 // Add two more keywords to the uniqueKeywords set, for example, 'coding' and 'science'.
 
-uniqueKeywords.add('coding');
-uniqueKeywords.add('science');
+uniqueKeywords.add("coding");
+uniqueKeywords.add("science");
 
 // 12.4
 
 // Delete 'business' from the uniqueKeywords set.
 
-uniqueKeywords.delete('business');
+uniqueKeywords.delete("business");
 
 // 12.5
 
@@ -733,3 +746,45 @@ const uniqueKeywordsArr = [...uniqueKeywords];
 // Delete all items from the uniqueKeywords set.
 
 uniqueKeywords.clear();
+
+// maps: fundamentals //////////////////////////////
+
+// 13.1
+
+// Create a new book, but this time, as a Map. Assign it to the bookMap variable.
+// Use this array as initial data:
+
+/*
+[['title', 'Clean Code'], ['author', 'Robert C. Martin']]
+*/
+
+const bookMap = new Map([
+  ["title", "Clean Code"],
+  ["author", "Robert C. Martin"],
+]);
+
+// 13.2
+
+// Set a new key in bookMap called pages, and assign it with a number 464.
+
+bookMap.set("pages", 464);
+
+// 13.3
+
+// Get the title and author values from bookMap, and log to the console a string
+// formatted like that: "${title} by ${author}".
+
+console.log(`"${bookMap.get("title")}" by ${bookMap.get("author")}`);
+
+// 13.4
+
+// Get the size of bookMap, and log it to the console.
+
+console.log(bookMap.size);
+
+// 13.5
+
+// Check if bookMap has the author key. and if so, log "The author of the book is known"
+// to the console.
+
+if (bookMap.has("author")) console.log(`The author is known`);
